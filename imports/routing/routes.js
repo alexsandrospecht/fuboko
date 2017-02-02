@@ -1,11 +1,17 @@
 FlowRouter.route('/', {
   action: function(params) {
-    BlazeLayout.render("mainLayout", {content: 'blogHome'});
+    BlazeLayout.render("blogHome");
+  }
+});
+
+FlowRouter.route('/avaliar/:user_id', {
+  action: function(params) {
+    BlazeLayout.render("avaliar", {user_id: params.user_id});
   }
 });
 
 FlowRouter.route('/:action', {
   action: function(params) {
-    BlazeLayout.render("mainLayout", {content: params.action});
+    BlazeLayout.render(params.action);
   }
 });

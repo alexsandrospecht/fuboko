@@ -1,0 +1,11 @@
+<template name = "atletas">
+	{{#each usuarios}}
+    {{> usuario}}
+  {{/each}}
+</template>
+
+<template name="usuario">
+  {{nome}} - {{email}}
+  <a href="/avaliar/{{id}}">Avaliar</a>
+  <br/>
+</template>
