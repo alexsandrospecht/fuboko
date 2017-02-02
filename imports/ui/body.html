@@ -1,0 +1,23 @@
+<body>
+  <ul>
+    <li><a href="/login">Login</a></li>
+    <li><a href="/notas">Notas</a></li>
+    <li><a href="/eventos">Eventos</a></li>
+  </ul>
+
+  {{> mainLayout}}
+</body>
+
+<template name="blogHome">
+  <p>This is the home page of our blog</p>
+  <p>
+    <a href="/hello-world">See Hello World Post</a>
+  </p>
+</template>
+
+<template name="hello-world">
+  <p>
+    <a href="/blogHome">Back</a> <br/>
+    This is a single blog post
+  </p>
+</template>
