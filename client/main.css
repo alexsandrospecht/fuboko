@@ -99,7 +99,7 @@ input[type="submit"]:hover{
   height:14px;
   display:block;
   border:5px solid #F7F5F2;
-  content:"login";
+  content:"";
   position:absolute;
   border-radius:14px;
   top:8px;

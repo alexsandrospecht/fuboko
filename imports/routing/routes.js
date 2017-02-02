@@ -1,6 +1,7 @@
 FlowRouter.route('/', {
   action: function(params) {
-    BlazeLayout.render("blogHome");
+    //BlazeLayout.render("blogHome");
+    BlazeLayout.render("login");
   }
 });
 
