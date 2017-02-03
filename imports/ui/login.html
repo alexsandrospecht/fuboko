@@ -1,16 +1,33 @@
-<template name = "login">  
-  <div class="main-form">
-  <i class="logo"></i>
-  <input type="text" placeholder="Username" value="">
-  <input type="password" placeholder="Password" value="">
-  <label>
-    <input type="checkbox"> Remember me
-  </label>
-  <input type="submit" value="Sign in">
-  <a href="#" title="">Forgot your password?</a>
-  <div>
-    <a href="#" title="">Don't have an account?</a>
-    <a href="#" title="">Sign Up</a>
-  </div>
-  </div>
+<template name = "login">
+  <form class="login">  
+
+    <div class="main-form">
+    <i class="logo"></i>
+    <input type="text" placeholder="Email" name="email" value="">
+    <input type="password" placeholder="Senha" name="senha" value="">
+    <label>
+      <input type="checkbox"> Permanecer logado
+    </label>
+    <input type="submit" value="Entrar">
+    <a href="#" title="">Esqueceu sua senha?</a>
+    <div>
+      <!-- <a href="#" title="">Não possui uma conta?</a> -->
+      <a href="/register" title="">Criar conta</a>
+    </div>
+    </div>
+
+  </form>
+</template>
+
+<template name = "register">
+
+oiiii
+  <form class="register">  
+    <div class="main-form">
+      <i class="logo"></i>
+      <input type="text" placeholder="Email" name="email" value="">
+      <input type="password" placeholder="Senha" name="senha" value="">
+      <input type="submit" value="Criar conta">
+    </div>
+  </form>
 </template>

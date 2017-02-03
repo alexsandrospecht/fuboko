@@ -2,5 +2,5 @@ import { Template } from 'meteor/templating';
 
 import './atletas.js';
 import './avaliar.js';
-import './login.html';
+import './login.js';
 import './body.html';
