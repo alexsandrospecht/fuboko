@@ -27,11 +27,12 @@ Template.register.events({
             email: email,
             password: password
         });
-        //alert('Registro realizado com sucesso. Por favor realize o login.')
 
 		$('.modal-wrapper').toggleClass('open');
 		$('.page-wrapper').toggleClass('blur');
 
-        //BlazeLayout.render("login");
+		$('.trigger').on('click', function() {
+			window.location.href = '/';
+		});
     }
 });
