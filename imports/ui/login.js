@@ -6,14 +6,6 @@ Template.login.events({
         var email = $('[name=email]').val();
         var password = $('[name=senha]').val();
         
-        // Remover
-        if (Meteor.users.find().count() === 0) {
-		  seedUserId = Accounts.createUser({
-		    email: 'teste@teste.com',
-		    password: '123456'
-		  });
-		}
-
         Meteor.loginWithPassword(email, password, function(error){
 		    if(error){
 		    	console.log(email +" "+ password);
@@ -35,7 +27,11 @@ Template.register.events({
             email: email,
             password: password
         });
-        alert('Registro realizado com sucesso. Por favor realize o login.')
-        BlazeLayout.render("login");
+        //alert('Registro realizado com sucesso. Por favor realize o login.')
+
+		$('.modal-wrapper').toggleClass('open');
+		$('.page-wrapper').toggleClass('blur');
+
+        //BlazeLayout.render("login");
     }
 });

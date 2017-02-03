@@ -25,7 +25,24 @@
       <i class="logo"></i>
       <input type="text" placeholder="Email" name="email" value="">
       <input type="password" placeholder="Senha" name="senha" value="">
-      <input type="submit" value="Criar conta">
+      <input id="criarConta" type="submit" value="Criar conta">
     </div>
   </form>
+
+  <div class="modal-wrapper">
+    <div class="modal">
+      <div class="head">
+        <a class="btn-close trigger" href="javascript:;">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </a>
+      </div>
+      <div class="content">
+          <div class="good-job">
+            <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
+            <h1 id="textoMensagem"></h1>
+          </div>
+      </div>
+    </div>
+  </div>
 </template>
+
