@@ -10,9 +10,9 @@ Template.login.events({
 		    if(error){
 		    	console.log(email +" "+ password);
 		        console.log(error.reason);
+		        alert(error);
 		    } else {
-		        alert('logado');
-		        // Router.go("home");
+		    	window.location.href = '/atletas';
 		    }
 		});
     }
