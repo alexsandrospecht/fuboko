@@ -1,13 +1,6 @@
 FlowRouter.route('/', {
   action: function(params) {
-    //BlazeLayout.render("blogHome");
     BlazeLayout.render("login");
-  }
-});
-
-FlowRouter.route('/register', {
-  action: function(params) {
-    BlazeLayout.render("register");
   }
 });
 
@@ -19,6 +12,9 @@ FlowRouter.route('/avaliar/:user_id', {
 
 FlowRouter.route('/:action', {
   action: function(params) {
-    BlazeLayout.render(params.action);
+    if (Meteor.userId() == null)
+      BlazeLayout.render("login");
+    else
+      BlazeLayout.render(params.action);
   }
 });

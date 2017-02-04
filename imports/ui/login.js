@@ -1,38 +1,25 @@
 import './login.html';
 
 Template.login.events({
-    'submit form': function(event){
-        event.preventDefault();
-        var email = $('[name=email]').val();
-        var password = $('[name=senha]').val();
-        
-        Meteor.loginWithPassword(email, password, function(error){
-		    if(error){
-		    	console.log(email +" "+ password);
-		        console.log(error.reason);
-		        alert(error);
-		    } else {
-		    	window.location.href = '/atletas';
-		    }
-		});
-    }
-});
-
-Template.register.events({
-    'submit form': function(event){
-        event.preventDefault();
-        var email = $('[name=email]').val();
-        var password = $('[name=senha]').val();
-        Accounts.createUser({
-            email: email,
-            password: password
+    'click #facebook-login': function(event) {
+        Meteor.loginWithFacebook({ requestPermissions: ['email']}, function(err){
+            if (err) {
+                throw new Meteor.Error("Facebook login failed");
+            } else {
+            	window.location.href = '/atletas';
+            }
         });
+    },
+ 
+    'click #logout': function(event) {
+        Meteor.logout(function(err){
+            if (err) {
+                throw new Meteor.Error("Logout failed");
+            }
+        })
+    },
 
-		$('.modal-wrapper').toggleClass('open');
-		$('.page-wrapper').toggleClass('blur');
-
-		$('.trigger').on('click', function() {
-			window.location.href = '/';
-		});
+    'click #inicio': function(event) {
+        window.location.href = '/atletas';
     }
 });
