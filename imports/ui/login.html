@@ -1,6 +1,12 @@
 <template name="login">
       <div class="main-form">
-          <i class="logo"></i>
+        <div style="text-align: center;vertical-align: middle;">
+          <img style='vertical-align:middle;' src='./icons/Corner.png' height="60" width="60">
+          <div style='vertical-align:middle; display:inline;margin: 0px;font-size: 2em;font-family: "Barrio, cursive;'>
+            F u b o k o
+          </div>
+        </div>
+
           {{#if currentUser}}
               <div class="circle" style="background-image:url('http://graph.facebook.com/{{currentUser.services.facebook.id}}/picture/?type=large')">
               </div>
