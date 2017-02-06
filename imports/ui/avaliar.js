@@ -1,8 +1,11 @@
 import './avaliar.html';
 
+Template.avaliar.onCreated(function atletasOnCreated() {
+  Meteor.subscribe('users');
+});
+
 Template.avaliar.helpers({
-  notaPasse: 0, 
-  notaChute: 0, 
-  notaMarcacao: 0, 
-  avaliado: 'Fulano',
+  atletaAvaliado() {
+		return Meteor.users.findOne({_id: FlowRouter.current().params.user_id}).emails[0].address;
+	},
 });
