@@ -23,3 +23,7 @@ Template.login.events({
         window.location.href = '/atletas';
     }
 });
+
+Template.login.onCreated(function atletasOnCreated() {
+  Meteor.subscribe('users');
+});
