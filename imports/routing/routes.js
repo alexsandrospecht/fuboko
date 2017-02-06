@@ -12,6 +12,9 @@ FlowRouter.route('/avaliar/:user_id', {
 
 FlowRouter.route('/:action', {
   action: function(params) {
-    BlazeLayout.render(params.action);
+    if (Meteor.userId() == null)
+      BlazeLayout.render("login");
+    else
+      BlazeLayout.render(params.action);
   }
 });
