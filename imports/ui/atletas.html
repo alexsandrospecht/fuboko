@@ -1,17 +1,10 @@
-<template name = "atletas">
-   <ul>
-    <li><a href="/login">Fuboko</a></li>
-    <li><a class="active" href="/atletas">Atletas</a></li>
-    <li><a href="/eventos">Eventos</a></li>
-  </ul>
-
-	{{#each usuarios}}
-    {{> usuario}}
+<template name="atletas">
+  {{#each atletas}} 
+  	{{> atleta}}
+  	<br/>
   {{/each}}
 </template>
 
-<template name="usuario">
-  {{nome}} - {{email}}
-  <a href="/avaliar/{{id}}">Avaliar</a>
-  <br/>
+<template name="atleta">
+  {{email}} - <a href="/avaliar/{{_id}}">Avaliar</a>
 </template>
