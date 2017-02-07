@@ -1,0 +1,23 @@
+<template name="times">
+  <div class="main-form">
+  	 	<div class="div-logo">
+          <img class='img-centralizada' src='/icons/Corner.png' height="60" width="60">
+          <div class="login-logo">
+            Times
+          </div>
+        </div>
+
+	  <form id="form-time">
+	        Nome <input type="text" name="text" /><br/>
+
+	        {{#each times}} 
+		  		{{> time}}
+		  		<br/>
+		    {{/each}}
+	  </form>
+  </div>
+</template>
+
+<template name="time">
+	{{nome}}
+</template>
