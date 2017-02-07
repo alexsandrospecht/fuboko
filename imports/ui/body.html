@@ -1,8 +1,9 @@
 <body>
-	<ul>
-    
-    <li><a href="" class="logoClass">Fuboko</a></li>
-    <li><a href="/atletas">Atletas</a></li>
+  <ul>
+    <li ren><a href="/" class="logoClass">Fuboko</a></li>
+    {{#if currentUser}}
+    	<li><a href="/atletas">Atletas</a></li>
+   	{{/if}}
   </ul>
 
   <main>

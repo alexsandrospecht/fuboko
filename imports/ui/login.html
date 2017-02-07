@@ -1,23 +1,24 @@
 <template name="login">
       <div class="main-form">
-        <div style="text-align: center;vertical-align: middle;">
-          <img style='vertical-align:middle;' src='/icons/Corner.png' height="60" width="60">
-          <div style='vertical-align:middle; display:inline;margin: 0px;font-size: 2em;font-family: "Barrio", cursive; margin-left: 10px;'>
+        <div class="div-logo">
+          <img class='img-centralizada' src='/icons/Corner.png' height="60" width="60">
+          <div class="login-logo">
             F u b o k o
           </div>
         </div>
 
           {{#if currentUser}}
-              <div class="circle" style="background-image:url('http://graph.facebook.com/{{currentUser.services.facebook.id}}/picture/?type=large')">
+              <div class="circle" 
+                style="background-image:url('http://graph.facebook.com/{{currentUser.services.facebook.id}}/picture/?type=large')">
               </div>
-              <p style="text-align: center;">Bem vindo</p> 
-              <p style="text-align: center;">{{currentUser.services.facebook.name}}</p>
+              <p class="texto-centralizado">Bem vindo</p> 
+              <p class="texto-centralizado">{{currentUser.services.facebook.name}}</p>
               <p>
                 <button id="inicio">Início</button>
               </p>
               <button id="logout">Sair</button>
           {{else}}
-              <button id="facebook-login" style="margin-top: 30px;" class="btn btn-default"> Logar com o Facebook</button>
+              <button id="facebook-login" class="btn-logout">Logar com o Facebook</button>
           {{/if}}
       </div>
 </template>

@@ -1,0 +1,41 @@
+.btn-logout {
+  margin-top: 30px;
+}
+
+.img-centralizada {
+  vertical-align:middle;
+}
+
+.texto-centralizado {
+  text-align: center;
+}
+
+.login-logo {
+  vertical-align:middle; 
+  display:inline;
+  margin: 0px;
+  font-size: 2em;
+  font-family: "Barrio", cursive;
+  margin-left: 10px;
+}
+
+.div-logo {
+  text-align: center;
+  vertical-align: middle;
+}
+
+/*avatar*/
+.circle {
+  display: block;
+  width: 150px;
+  height: 150px;
+  margin: 1em auto;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  -webkit-border-radius: 99em;
+  -moz-border-radius: 99em;
+  border-radius: 99em;
+  border: 5px solid #eee;
+  box-shadow: 0 3px 2px rgba(0, 0, 0, 0.3);  
+}
