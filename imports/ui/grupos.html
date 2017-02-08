@@ -1,23 +1,30 @@
-<template name="grupos">
+<template name="meusGrupos">
   <div class="main-form">
-  	 	<div class="div-logo">
-          <img class='img-centralizada' src='/icons/Corner.png' height="60" width="60">
-          <div class="login-logo">
-            Meus Grupos
-          </div>
-        </div>
+ 	<div class="div-logo">
+    	<img class='img-centralizada' src='/icons/Corner.png' height="60" width="60">
+    	<div class="login-logo">
+      		Meus Grupos
+    	</div>
 
-	  <form id="form-grupo">
-	        Nome <input type="text" name="text" /><br/>
-
-	        {{#each grupos}} 
-		  		{{> grupo}}
+		<div style="margin-top: 30px">
+	        {{#each meusGrupos}} 
+		  		{{> grupo}} 
 		  		<br/>
 		    {{/each}}
-	  </form>
+	    </div>
+	    <p>
+        	<button id="criarGrupo">Criar</button>
+        </p>
+	  </div>
   </div>
 </template>
 
 <template name="grupo">
 	{{nome}}
+</template>
+
+<template name="novoGrupo">
+	<form id="form-grupo">
+		Nome <input type="text" name="text" /><br/>
+	</form>	
 </template>

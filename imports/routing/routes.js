@@ -12,7 +12,7 @@ FlowRouter.route('/avaliar/:user_id', {
 
 FlowRouter.route('/grupos', {
   action: function(params) {
-    BlazeLayout.render("grupos");
+    BlazeLayout.render("meusGrupos");
   }
 });
 
