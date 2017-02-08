@@ -10,9 +10,9 @@ FlowRouter.route('/avaliar/:user_id', {
   }
 });
 
-FlowRouter.route('/time', {
+FlowRouter.route('/grupos', {
   action: function(params) {
-    BlazeLayout.render("times");
+    BlazeLayout.render("grupos");
   }
 });
 

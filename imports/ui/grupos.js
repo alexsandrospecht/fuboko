@@ -1,24 +1,22 @@
-import './times.html';
+import './grupos.html';
 
 import { Template } from 'meteor/templating';
-import { Times } from '../api/times.js';
+import { Grupos } from '../api/grupos.js';
 
-
-Template.times.helpers({
-  times() {
-		return Times.find();	
+Template.grupos.helpers({
+  grupos() {
+		return Grupos.find();
 	},
 });
 
-Template.times.events({
-  'submit #form-time'(event) {
+Template.grupos.events({
+  'submit #form-grupo'(event) {
     event.preventDefault();
  
- 	console.log(Times.find())
     const target = event.target;
     const text = target.text.value;
  
-    Times.insert({
+    Grupos.insert({
       nome: text,
       criadoEm: new Date(),
     });

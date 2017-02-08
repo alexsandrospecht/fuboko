@@ -1,23 +1,23 @@
-<template name="times">
+<template name="grupos">
   <div class="main-form">
   	 	<div class="div-logo">
           <img class='img-centralizada' src='/icons/Corner.png' height="60" width="60">
           <div class="login-logo">
-            Times
+            Meus Grupos
           </div>
         </div>
 
-	  <form id="form-time">
+	  <form id="form-grupo">
 	        Nome <input type="text" name="text" /><br/>
 
-	        {{#each times}} 
-		  		{{> time}}
+	        {{#each grupos}} 
+		  		{{> grupo}}
 		  		<br/>
 		    {{/each}}
 	  </form>
   </div>
 </template>
 
-<template name="time">
+<template name="grupo">
 	{{nome}}
 </template>
