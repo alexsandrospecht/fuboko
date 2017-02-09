@@ -4,6 +4,19 @@ import { check } from 'meteor/check';
 
 import { Grupos } from './grupos.js';
 
+DEFAULT_ID = 'NQwN9q4qaNFwnzgsK';
+
+if (Meteor.isServer) {
+  Meteor.publish('avaliacoes.byGrupoIdOwnerIdAvaliadoId', function(grupoId, ownerId, avaliadoId) {
+    return Grupos.find({'_id': grupoId}, 
+                       { avaliacoes: [$elemMatch: {avaliadoId: avaliadoId, ownerId: avaliadorId}]});
+  });
+}
+
+if (Meteor.client) {
+  Meteor.subscribe('avaliacoes.byGrupoIdOwnerIdAvaliadoId');
+}
+
 Meteor.methods({
   'avaliacoes.insert'(notaPasse, notaDrible, notaPreparoFisico, notaChute, notaMarcacao, avaliadoId) {
     if (!this.userId) {
@@ -26,6 +39,26 @@ Meteor.methods({
     avaliacao.ownerId = this.userId;
 
     Grupos.update({ _id: grupo._id },{ $push: { avaliacoes: avaliacao }})
+  },
+
+  'avaliacoes.find'(avaliadoId) {
+    return 'avaliacoes.find'(DEFAULT_ID, this.userId);
+  },
+
+  'avaliacoes.find'(grupoId, avaliadorId, avaliadoId) {
+    if (!this.userId) {
+      throw new Meteor.Error('not-authorized');
+    }
+
+    console.log(JSON.stringify(Meteor.call('grupos.findAll')));
+    console.log(JSON.stringify(Grupos.find({}).fetch()));
+    console.log(JSON.stringify(handle.ready()));
+    console.log('aaa');
+
+    obj = 
+
+    console.log(JSON.stringify(obj));
+    return null;    
   },
 });
 

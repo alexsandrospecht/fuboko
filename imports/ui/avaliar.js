@@ -4,11 +4,12 @@ import { Avaliacoes } from '../api/avaliacoes.js';
 
 Template.avaliar.onCreated(function avaliarOnCreated() {
   Meteor.subscribe('users');
+  Meteor.call('avaliacoes.find', getAvaliadoId());
 });
 
 Template.avaliar.helpers({
   atletaAvaliado() {
-  	avaliado = Meteor.users.findOne({_id: FlowRouter.current().params.user_id});
+  	avaliado = Meteor.users.findOne({_id: getAvaliadoId()});
   	return avaliado ? avaliado.emails[0].address : 'Não encontrado';
 	},
 });
@@ -35,3 +36,7 @@ Template.avaliar.events({
     target.notaMarcacao.value = '';
   },
 });
+
+function getAvaliadoId() {
+  return FlowRouter.current().params.user_id;
+}
