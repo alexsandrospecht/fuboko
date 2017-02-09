@@ -23,12 +23,13 @@ Template.novoGrupo.events({
     });
 
     target.text.value = '';
+    alert('Novo Grupo Cadastrado Com Sucesso!');
+    BlazeLayout.render("meusGrupos");
   },
 });
 
 Template.meusGrupos.events({		
   'click #criarGrupo': function(event) {
-  	alert(1);
     BlazeLayout.render("novoGrupo");
    },
 });

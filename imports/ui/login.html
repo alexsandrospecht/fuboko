@@ -7,18 +7,18 @@
           </div>
         </div>
 
-          {{#if currentUser}}
-              <div class="circle" 
-                style="background-image:url('http://graph.facebook.com/{{currentUser.services.facebook.id}}/picture/?type=large')">
-              </div>
-              <p class="texto-centralizado">Bem vindo</p> 
-              <p class="texto-centralizado">{{currentUser.services.facebook.name}}</p>
-              <p>
-                <button id="inicio">Início</button>
-              </p>
-              <button id="logout">Sair</button>
-          {{else}}
-              <button id="facebook-login" class="btn-logout">Logar com o Facebook</button>
-          {{/if}}
+        {{#if currentUser}}
+            <div class="circle" 
+              style="background-image:url('http://graph.facebook.com/{{currentUser.services.facebook.id}}/picture/?type=large')">
+            </div>
+            <p class="texto-centralizado">Bem vindo</p> 
+            <p class="texto-centralizado">{{currentUser.services.facebook.name}}</p>
+            <p>
+              <button id="inicio">Início</button>
+            </p>
+            <button id="logout">Sair</button>
+        {{else}}
+            <button id="facebook-login" class="btn-logout">Logar com o Facebook</button>
+        {{/if}}
       </div>
 </template>
