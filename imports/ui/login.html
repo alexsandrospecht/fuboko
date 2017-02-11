@@ -14,11 +14,11 @@
             <p class="texto-centralizado">Bem vindo</p> 
             <p class="texto-centralizado">{{currentUser.services.facebook.name}}</p>
             <p>
-              <button id="inicio">Início</button>
+              <button id="inicio" class="btn btn-primary btn-block">Início</button>
             </p>
-            <button id="logout" class="button-red">Sair</button>
+            <button id="logout" class="btn btn-danger btn-block">Sair</button>
         {{else}}
-            <button id="facebook-login" class="loginBtn loginBtn--facebook">Logar com o Facebook</button>
+            <button id="facebook-login" class="loginBtn loginBtn--facebook btn-block">Logar com o Facebook</button>
         {{/if}}
       </div>
 </template>

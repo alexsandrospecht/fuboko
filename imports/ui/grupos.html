@@ -7,13 +7,15 @@
     	</div>
 
 		<div style="margin-top: 30px">
+			<ul class="list-group">
 	        {{#each meusGrupos}} 
 		  		{{> grupo}} 
 		  		<br/>
 		    {{/each}}
+		    </ul>
 	    </div>
 	    <p>
-        	<button id="criarGrupo">Criar</button>
+        	<button id="criarGrupo" class="btn btn-primary btn-block">Criar</button>
         </p>
 	  </div>
   </div>
@@ -40,11 +42,11 @@
 				    <input type="checkbox" id="grupoPublico" /> Publico
 				</div> 
 				<p>
-        			<button type="submit" id="salvarGrupo">Salvar</button>
+        			<button type="submit" id="salvarGrupo" class="btn btn-primary btn-block">Salvar</button>
         		</p>
 			</form>
 			<p>
-        		<button id="cancelarGrupo" class="button-red">Cancelar</button>
+        		<button id="cancelarGrupo" class="btn btn-danger btn-block">Cancelar</button>
         	</p>	
 		</div>
 	</div>
