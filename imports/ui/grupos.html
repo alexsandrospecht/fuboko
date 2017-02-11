@@ -20,7 +20,7 @@
 </template>
 
 <template name="grupo">
-	{{nome}}
+	{{nome}} - {{#if publico}} Público {{else}} Privado {{/if}}
 </template>
 
 <template name="novoGrupo">
@@ -34,7 +34,18 @@
 		<div style="margin-top: 30px">
 			<form id="form-grupo">
 				Nome <input type="text" name="text" /><br/>
-			</form>	
+
+				<div>
+				    <input type="checkbox" id="grupoPrivado" /> Privado
+				    <input type="checkbox" id="grupoPublico" /> Publico
+				</div> 
+				<p>
+        			<button type="submit" id="salvarGrupo">Salvar</button>
+        		</p>
+			</form>
+			<p>
+        		<button id="cancelarGrupo">Cancelar</button>
+        	</p>	
 		</div>
 	</div>
 	</div>
