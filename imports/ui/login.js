@@ -6,7 +6,7 @@ Template.login.events({
             if (err) {
                 throw new Meteor.Error("Facebook login failed");
             } else {
-            	window.location.href = '/atletas';
+            	BlazeLayout.render("atletas");
             }
         });
     },
@@ -20,7 +20,7 @@ Template.login.events({
     },
 
     'click #inicio': function(event) {
-        window.location.href = '/atletas';
+        BlazeLayout.render("atletas");
     }
 });
 
