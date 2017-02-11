@@ -22,6 +22,10 @@ Template.novoGrupo.events({
 		const target = event.target;
 		const text = target.text.value;
 
+		if (text === '') {
+			return;
+		}
+
 		Grupos.insert({
 		  nome: text,
 		  criadoEm: new Date(),
