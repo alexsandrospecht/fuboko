@@ -1,10 +1,12 @@
 <template name="atletas">
-  {{#each atletas}} 
-  	{{> atleta}}
-  	<br/>
-  {{/each}}
+	<div class="main-form">
+		{{#each atletas}} 
+			{{> atleta}}
+			<br/>
+		{{/each}}
+	</div>
 </template>
 
 <template name="atleta">
-  {{email}} - <a href="/avaliar/{{_id}}">Avaliar</a>
+	{{email}} - <a href="/avaliar/{{_id}}">Avaliar</a>
 </template>

@@ -6,11 +6,10 @@
       		Meus Grupos
     	</div>
 
-		<div style="margin-top: 30px">
+		<div class="margin-top30">
 			<ul class="list-group">
 	        {{#each meusGrupos}} 
 		  		{{> grupo}} 
-		  		<br/>
 		    {{/each}}
 		    </ul>
 	    </div>
@@ -22,7 +21,7 @@
 </template>
 
 <template name="grupo">
-	{{nome}} - {{#if publico}} Público {{else}} Privado {{/if}}
+	<li class="list-group-item list-group-item-success">{{nome}} <span class="badge">{{#if publico}} Público {{else}} Privado {{/if}}</span></li>
 </template>
 
 <template name="novoGrupo">
@@ -33,22 +32,22 @@
       		Criar Grupo
     	</div>
 
-		<div style="margin-top: 30px">
-			<form id="form-grupo">
-				Nome <input type="text" name="text" /><br/>
-
-				<div>
-				    <input type="checkbox" id="grupoPrivado" /> Privado
-				    <input type="checkbox" id="grupoPublico" /> Publico
-				</div> 
-				<p>
-        			<button type="submit" id="salvarGrupo" class="btn btn-primary btn-block">Salvar</button>
-        		</p>
-			</form>
-			<p>
-        		<button id="cancelarGrupo" class="btn btn-danger btn-block">Cancelar</button>
-        	</p>	
-		</div>
+    	<form id="form-grupo">
+		  <div class="form-group row margin-top30">
+		    <label for="exampleInputEmail1">Nome</label>
+		    <input type="text" class="form-control" name="text" placeholder="Informe o nome do grupo">
+		  </div>
+		  <div>
+		  	<input type="checkbox" id="grupoPrivado" /> Privado
+		    <input type="checkbox" id="grupoPublico" /> Publico
+		  </div> 
+		  <p class="margin-top30">
+          	<button type="submit" id="salvarGrupo" class="btn btn-primary btn-block">Salvar</button>
+          </p>
+		</form>
+		<p>
+          <button id="cancelarGrupo" class="btn btn-danger btn-block">Cancelar</button>
+        </p>
 	</div>
 	</div>
 </template>

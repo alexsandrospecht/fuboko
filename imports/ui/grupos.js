@@ -34,6 +34,7 @@ Template.novoGrupo.events({
 		});
 
 		target.text.value = '';
+
 		alert('Novo Grupo Cadastrado Com Sucesso!');
 		BlazeLayout.render("meusGrupos");
 	},

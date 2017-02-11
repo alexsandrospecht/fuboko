@@ -1,15 +1,18 @@
 <template name="avaliar">
-    {{atletaAvaliado}}
-    <br/>
+    
 
-    <form class="nova-avaliacao">
-    	<strong>Passe</strong> <input type="text" name="notaPasse" value="{{notaPasse}}"/><br/>
-	    <strong>Chute</strong> <input type="text" name="notaChute" value="{{notaChute}}"/><br/>
-	    <strong>Drible</strong> <input type="text" name="notaDrible" value="{{notaDrible}}"/><br/>
-	    <strong>Marcação</strong> <input type="text" name="notaMarcacao" value="{{notaMarcacao}}"/><br/>
+    <div class="main-form">
+	    {{atletaAvaliado}}
+	    <br/>
+    	<form class="nova-avaliacao">
+	    	<strong>Passe</strong> <input type="text" name="notaPasse" value="{{notaPasse}}"/><br/>
+		    <strong>Chute</strong> <input type="text" name="notaChute" value="{{notaChute}}"/><br/>
+		    <strong>Drible</strong> <input type="text" name="notaDrible" value="{{notaDrible}}"/><br/>
+		    <strong>Marcação</strong> <input type="text" name="notaMarcacao" value="{{notaMarcacao}}"/><br/>
 			<strong>Preparo Físico</strong> <input type="text" name="notaPreparoFisico" value="{{notaPreparoFisico}}"/>
 			<br/>
 
 			<input type="submit" text="Enviar nota">
 		</form>
+	</div>
 </template>
