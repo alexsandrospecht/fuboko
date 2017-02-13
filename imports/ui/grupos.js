@@ -53,4 +53,8 @@ Template.meusGrupos.events({
 	'click #criarGrupo': function(event) {
 		BlazeLayout.render("novoGrupo");
 	},
+	'click .btn': function(event) {
+		alert(this._id);
+	},
+
 });
