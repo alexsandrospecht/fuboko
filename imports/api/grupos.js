@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
+import { Match } from 'meteor/check';
 import { check } from 'meteor/check';
 
 export const Grupos = new Mongo.Collection('grupos');
@@ -16,18 +17,24 @@ Meteor.methods({
       throw new Meteor.Error('not-authorized');
     }
 
-    checkNotas(avaliacao.notaPasse);
+    NotaValidation = Match.Where(function (nota) {
+      // Match.test(nota, Match.Integer);
+      return nota >= 0 && nota <= 5;
+    });
+
+    check(avaliacao.notaPasse, NotaValidation);
 
     grupo = createOrFindGrupo();
-
     avaliacao.ownerId = Meteor.userId();
 
-    Grupos.update({ _id: grupo._id },{ $push: { avaliacoes: avaliacao }})
+    Grupos.update({_id: grupo._id}, {$pull: {'avaliacoes': 
+                                        {ownerId: avaliacao.ownerId, avaliadoId: avaliacao.avaliadoId}}});
+    Grupos.update({_id: grupo._id },{ $push: { avaliacoes: avaliacao }})
   },
 });
 
 function checkNotas(nota) {
-  //TODO
+  check(nota, Number);
 }
 
 function createOrFindGrupo() {

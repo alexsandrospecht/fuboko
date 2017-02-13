@@ -10,7 +10,7 @@ Template.avaliar.onCreated(function avaliarOnCreated() {
 Template.avaliar.helpers({
   atletaAvaliado() {
   	avaliado = Meteor.users.findOne({_id: getAvaliadoId()});
-  	return avaliado ? avaliado.services.facebook.name : 'Não encontrado';
+  	return avaliado && avaliado.services ? avaliado.services.facebook.name : 'Não encontrado';
 	},
   avaliacao() {
     avaliacao = Grupos.findOne(
@@ -46,29 +46,9 @@ Template.avaliar.events({
 
     Meteor.call('avaliacoes.insertOrUpdate', grupoDefault._id, avaliacao);
 
-    // target.notaPasse.value = '';
-    // target.notaDrible.value = '';
-    // target.notaPreparoFisico.value = '';
-    // target.notaChute.value = '';
-    // target.notaMarcacao.value = '';
-
     FlowRouter.go('/atletas');
   },
 });
-
-// function findOrCreateAvaliacao() {
-//   if (avaliacao === undefined) {
-//     this.avaliacao = new Object();
-//     this.avaliacao.notaPasse = 0;
-//     this.avaliacao.notaDrible = 0;
-//     this.avaliacao.notaPreparoFisico = 0;
-//     this.avaliacao.notaChute = 0;
-//     this.avaliacao.notaMarcacao = 0;
-//     this.avaliacao.avaliado = getAvaliadoId();
-//   }
-
-//   return this.avaliacao;
-// }
 
 function getAvaliadoId() {
   return FlowRouter.current().params.user_id;
