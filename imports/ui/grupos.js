@@ -1,6 +1,5 @@
 import './grupos.html';
 
-import { Template } from 'meteor/templating';
 import { Grupos } from '../api/grupos.js';
 
 Template.meusGrupos.helpers({

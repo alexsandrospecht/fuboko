@@ -1,7 +1,5 @@
 import './atletas.html';
 
-import { Template } from 'meteor/templating';
-
 Template.atletas.onCreated(function atletasOnCreated() {
   Meteor.subscribe('users');
 });
@@ -14,6 +12,10 @@ Template.atletas.helpers({
 
 Template.atleta.helpers({
   email() {
-		return this.emails[0].address;	
+  	if (this.services !== undefined) {
+  		login = this.services.facebook;
+  		return login.name + ' - ' + login.email;
+  	}
+  	return '';
 	},
 });
