@@ -16,6 +16,12 @@ FlowRouter.route('/grupos', {
   }
 });
 
+FlowRouter.route('/grupo/:_id', {
+  action: function(params) {
+    BlazeLayout.render("novoGrupo", {_id: params._id});
+  }
+});
+
 FlowRouter.route('/:action', {
   action: function(params) {
     if (Meteor.userId() == null)

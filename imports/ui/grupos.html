@@ -24,7 +24,7 @@
 	<li class="list-group-item list-group-item-success" 
 	    style="text-align: left;">{{nome}} 
 	    <span class="badge">{{#if publico}} Público {{else}} Privado {{/if}}</span> 
-	    <button class="btn btn-info btn-xs" style="float: right; margin-right: 10px">Editar</button>
+	    <a class="btn btn-info btn-xs" style="float: right; margin-right: 10px" href="/grupo/{{_id}}">Editar</a>
 	</li>
 </template>
 
@@ -39,11 +39,11 @@
     	<form id="form-grupo">
 		  <div class="form-group row margin-top30">
 		    <label for="exampleInputEmail1">Nome</label>
-		    <input type="text" class="form-control" name="text" placeholder="Informe o nome do grupo">
+		    <input type="text" class="form-control" name="text" value="{{grupo.nome}}" placeholder="Informe o nome do grupo">
 		  </div>
 		  <div>
-		  	<input type="checkbox" id="grupoPrivado" /> Privado
-		    <input type="checkbox" id="grupoPublico" /> Publico
+		  	<input type="checkbox" id="grupoPrivado" value="{{grupo.publico}}"/> Privado
+		    <input type="checkbox" id="grupoPublico" value="{{grupo.publico}}"/> Publico
 		  </div> 
 		  <p class="margin-top30">
           	<button type="submit" id="salvarGrupo" class="btn btn-primary btn-block">Salvar</button>
