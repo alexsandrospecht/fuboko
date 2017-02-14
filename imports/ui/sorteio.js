@@ -117,6 +117,7 @@ function somaMedia(avaliacoes) {
   });
 
   if (somaFinal == 0) {
+    // FIXME: Calcular uma media de todos os jogadores e usa-la quando o jogador nao possui uma.
     return 2.5;
   }
 
