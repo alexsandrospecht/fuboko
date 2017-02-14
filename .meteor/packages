@@ -30,3 +30,4 @@ service-configuration
 twbs:bootstrap
 facebook-config-ui
 check
+digilord:faker

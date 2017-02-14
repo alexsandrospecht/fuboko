@@ -11,10 +11,9 @@ Template.atletas.helpers({
 });
 
 Template.atleta.helpers({
-  email() {
-  	if (this.services !== undefined) {
-  		login = this.services.facebook;
-  		return login.name + ' - ' + login.email;
+  name() {
+  	if (this.profile !== undefined) {
+  		return this.profile.name;
   	}
   	return '';
 	},

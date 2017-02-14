@@ -11,6 +11,10 @@ if (Meteor.isServer) {
   });
 }
 
+if (Meteor.isClient) {
+  Meteor.subscribe('grupos');
+}
+
 Meteor.methods({
   'avaliacoes.insertOrUpdate'(grupoId, avaliacao) {
     if (!this.userId) {
