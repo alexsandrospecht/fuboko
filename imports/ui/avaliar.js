@@ -12,10 +12,7 @@ Template.avaliar.helpers({
   	avaliado = Meteor.users.findOne({_id: getAvaliadoId()});
   	return avaliado && avaliado.profile ? avaliado.profile.name : 'Não encontrado';
 	},
-  avaliacao() {
-    console.log('avaliadoId: ' + getAvaliadoId());
-    console.log('userId: ' + Meteor.userId());
-    
+  avaliacao() {    
     grupo = Grupos.findOne({});
     if (grupo == undefined) {
       return null;

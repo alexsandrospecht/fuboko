@@ -1,0 +1,22 @@
+<template name = "sorteio">
+	<div class="main-form">
+		<h2>{{times.time1.nome}} - Média {{times.time1.media}}</h2>
+		{{#each times.time1.atletas}} 
+			{{> atletaSorteio}}
+			<br/>
+		{{/each}}
+
+		<h2>{{times.time2.nome}} - Média {{times.time2.media}}</h2>
+		{{#each times.time2.atletas}} 
+			{{> atletaSorteio}}
+			<br/>
+		{{/each}}
+
+		<br/>
+		<a href="sorteio">Tentar novamente</a>
+	</div>
+</template>
+
+<template name = "atletaSorteio">
+	{{nome}} - {{media}}
+</template>
