@@ -39,10 +39,10 @@ Template.novoGrupo.events({
 
       target.text.value = '';
       alert('Grupo Alterado Com Sucesso!');
-      window.location.href = "/grupos";
+      FlowRouter.go('/grupos');
       return;
     }
-
+    
 		Grupos.insert({
 		  nome: text,
 		  criadoEm: new Date(),
@@ -53,7 +53,7 @@ Template.novoGrupo.events({
 		target.text.value = '';
 
 		alert('Novo Grupo Cadastrado Com Sucesso!');
-		BlazeLayout.render("meusGrupos");
+		FlowRouter.go('/grupos');
 	},
 	'click #cancelarGrupo' (event) {
 	    BlazeLayout.render("meusGrupos");
@@ -68,10 +68,6 @@ Template.novoGrupo.events({
 
 Template.meusGrupos.events({	
 	'click #criarGrupo': function(event) {
-		BlazeLayout.render("novoGrupo");
-	},
-	'click .btn': function(event) {
-		//alert(this._id);
-	},
-
+		FlowRouter.go("/novoGrupo");
+	}
 });

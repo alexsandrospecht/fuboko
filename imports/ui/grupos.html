@@ -1,5 +1,5 @@
 <template name="meusGrupos">
-  <div class="main-form">
+  <div class="main-form bigger-form">
  	<div class="div-logo">
     	<img class='img-centralizada' src='/icons/Corner.png' height="60" width="60">
     	<div class="login-logo">
@@ -8,9 +8,9 @@
 
 		<div class="margin-top30">
 			<ul class="list-group">
-	      {{#each meusGrupos}} 
-		  		{{> grupo}} 
-		    {{/each}}
+		      	{{#each meusGrupos}} 
+			  		{{> grupo}} 
+			    {{/each}}
 		    </ul>
 	    </div>
 	    <p>
@@ -24,8 +24,8 @@
 	<li class="list-group-item list-group-item-success" 
 	    style="text-align: left;">{{nome}} 
 	    <span class="badge">{{#if publico}} Público {{else}} Privado {{/if}}</span> 
+	  	<a class="btn btn-primary btn-xs" style="float: right; margin-right: 10px" href="/atletas">Detalhes</a>
 	    <a class="btn btn-info btn-xs" style="float: right; margin-right: 10px" href="/grupo/{{_id}}">Editar</a>
-	    <a class="btn btn-info btn-xs" style="float: right; margin-right: 10px" href="/atletas">Detalhes</a>
 	</li>
 </template>
 

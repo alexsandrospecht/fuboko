@@ -14,7 +14,7 @@ body {
   color:#C4BCB0;
 }
 
-.main-form{
+.main-form {
   width:350px;
   margin: 100px auto;
   padding:50px;
@@ -23,6 +23,10 @@ body {
   background:#fff;
 }
 
-.margin-top30{
+.bigger-form {
+  width:550px;
+}
+
+.margin-top30 {
   margin-top: 30px;
 }

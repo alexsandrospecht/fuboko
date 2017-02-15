@@ -1,15 +1,27 @@
 <template name="atletas">
 	<div class="main-form">
-		{{#each atletas}} 
-			{{> atleta}}
-			<br/>
-		{{/each}}
+		<div class="div-logo">
+	    	<img class='img-centralizada' src='/icons/Corner.png' height="60" width="60">
+	    	<div class="login-logo">
+	      		Atletas
+	    	</div>
 
-		<br/>
-		<a href='sorteio'>Sorteio</a>
+	    	<div class="margin-top30">
+				<ul class="list-group">
+					{{#each atletas}} 
+						{{> atleta}}
+					{{/each}}
+				</ul>
+			</div>
+
+			<br/>
+			<a href='sorteio'>Sorteio</a>
+		</div>
 	</div>
 </template>
 
 <template name="atleta">
-	{{name}} - <a href="/avaliar/{{_id}}">Avaliar</a>
+	<li class="list-group-item list-group-item-success" style="text-align: left;">
+		{{name}} - <a href="/avaliar/{{_id}}">Avaliar</a>
+	</li>
 </template>

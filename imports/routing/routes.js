@@ -16,6 +16,12 @@ FlowRouter.route('/grupos', {
   }
 });
 
+FlowRouter.route('/novoGrupo', {
+  action: function(params) {
+    BlazeLayout.render("novoGrupo");
+  }
+});
+
 FlowRouter.route('/grupo/:_id', {
   action: function(params) {
     BlazeLayout.render("novoGrupo", {_id: params._id});
