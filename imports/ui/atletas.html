@@ -15,13 +15,13 @@
 			</div>
 
 			<br/>
-			<a href='sorteio'>Sorteio</a>
+			<a href='{{pathParaSorteio}}'>Sorteio</a>
 		</div>
 	</div>
 </template>
 
 <template name="atleta">
 	<li class="list-group-item list-group-item-success" style="text-align: left;">
-		{{name}} - <a href="/avaliar/{{_id}}">Avaliar</a>
+		{{name}} - <a href="{{pathParaAvaliar}}">Avaliar</a>
 	</li>
 </template>

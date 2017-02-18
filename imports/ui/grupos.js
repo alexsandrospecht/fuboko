@@ -4,7 +4,7 @@ import { Grupos } from '../api/grupos.js';
 
 Template.meusGrupos.helpers({
 	meusGrupos() {
-		return Grupos.find( {usuario: Meteor.userId()}, { sort: { nome: 1 } });
+		return Grupos.find({}, { sort: { nome: 1 } });
 	},
 });
 

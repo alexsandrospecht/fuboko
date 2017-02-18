@@ -22,7 +22,6 @@ Meteor.methods({
     }
 
     NotaValidation = Match.Where(function (nota) {
-      // Match.test(nota, Match.Integer);
       return nota >= 0 && nota <= 5;
     });
 

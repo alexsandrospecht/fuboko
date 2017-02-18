@@ -1,18 +1,18 @@
-FlowRouter.route('/', {
+FlowRouter.route('/grupos/:grupo_id/atletas', {
   action: function(params) {
-    BlazeLayout.render("login");
+    render("atletas", {grupo_id: params.grupo_id});
   }
 });
 
-FlowRouter.route('/avaliar/:user_id', {
+FlowRouter.route('/grupos/:grupo_id/sorteio', {
   action: function(params) {
-    BlazeLayout.render("avaliar", {user_id: params.user_id});
+    render("sorteio", {grupo_id: params.grupo_id});
   }
 });
 
-FlowRouter.route('/grupos', {
+FlowRouter.route('/grupos/:grupo_id/avaliar/:user_id', {
   action: function(params) {
-    BlazeLayout.render("meusGrupos");
+    render("avaliar", {user_id: params.user_id, grupo_id: params.grupo_id});
   }
 });
 
@@ -22,17 +22,31 @@ FlowRouter.route('/novoGrupo', {
   }
 });
 
-FlowRouter.route('/grupo/:_id', {
+FlowRouter.route('/grupos/:_id', {
   action: function(params) {
-    BlazeLayout.render("novoGrupo", {_id: params._id});
+    render("novoGrupo", {_id: params._id});
   }
 });
 
-FlowRouter.route('/:action', {
-  action: function(params) {
-    if (Meteor.userId() == null)
-      BlazeLayout.render("login");
-    else
-      BlazeLayout.render(params.action);
+route('/grupos', 'meusGrupos');
+route('/', 'meusGrupos');
+
+function route(from, toAction) {
+  FlowRouter.route(from, {
+    action: function(params) {
+      render(toAction);
+    }
+  });
+};
+
+function render(action, ...params) {
+  if (Meteor.userId() == null) {
+    renderWithoutLogin("login");
+    return;
   }
-});
+  renderWithoutLogin(action, params);
+}
+
+function renderWithoutLogin(action, ...params) {
+  BlazeLayout.render(action, params);
+}

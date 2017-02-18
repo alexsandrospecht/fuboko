@@ -6,8 +6,15 @@ Template.atletas.onCreated(function atletasOnCreated() {
 
 Template.atletas.helpers({
   atletas() {
+    // FlowRouter.current().params.grupo_id;
 		return Meteor.users.find();	
 	},
+  pathParaSorteio() {
+    var params = {
+      grupo: FlowRouter.current().params.grupo_id
+    };
+    return FlowRouter.path('/grupos/:grupo/sorteio', params);
+  }
 });
 
 Template.atleta.helpers({
@@ -17,4 +24,12 @@ Template.atleta.helpers({
   	}
   	return '';
 	},
+  pathParaAvaliar() {
+    var atleta = this;
+    var params = {
+      grupo: FlowRouter.current().params.grupo_id,
+      atleta: atleta._id
+    };
+    return FlowRouter.path('/grupos/:grupo/avaliar/:atleta', params);
+  }
 });

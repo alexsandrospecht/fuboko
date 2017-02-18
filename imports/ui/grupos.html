@@ -22,10 +22,10 @@
 
 <template name="grupo">
 	<li class="list-group-item list-group-item-success" 
-	    style="text-align: left;">{{nome}} 
+	    style="text-align: left;">{{_id}} 
 	    <span class="badge">{{#if publico}} Público {{else}} Privado {{/if}}</span> 
-	  	<a class="btn btn-primary btn-xs" style="float: right; margin-right: 10px" href="/atletas">Detalhes</a>
-	    <a class="btn btn-info btn-xs" style="float: right; margin-right: 10px" href="/grupo/{{_id}}">Editar</a>
+	  	<a class="btn btn-primary btn-xs" style="float: right; margin-right: 10px" href="/grupos/{{_id}}/atletas">Detalhes</a>
+	    <a class="btn btn-info btn-xs" style="float: right; margin-right: 10px" href="/grupos/{{_id}}">Editar</a>
 	</li>
 </template>
 

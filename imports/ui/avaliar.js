@@ -49,7 +49,11 @@ Template.avaliar.events({
 
     Meteor.call('avaliacoes.insertOrUpdate', grupoDefault._id, avaliacao);
 
-    FlowRouter.go('/atletas');
+    params = {
+      grupo: FlowRouter.current().params.grupo_id,
+    };
+
+    FlowRouter.go('/grupos/:grupo/atletas', params);
   },
 });
 
