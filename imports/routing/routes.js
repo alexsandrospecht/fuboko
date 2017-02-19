@@ -28,6 +28,12 @@ FlowRouter.route('/grupos/:_id', {
   }
 });
 
+FlowRouter.route('/detalharGrupo/:_id', {
+  action: function(params) {
+    render("detalharGrupo", {_id: params._id});
+  }
+});
+
 route('/grupos', 'meusGrupos');
 route('/', 'meusGrupos');
 

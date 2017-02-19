@@ -19,7 +19,14 @@ Template.novoGrupo.helpers({
   },
 });
 
-Template.novoGrupo.events({		
+Template.detalharGrupo.helpers({
+  grupo() {
+    grupo = Grupos.findOne({_id: FlowRouter.current().params._id});
+    return grupo ? grupo : 'Não encontrado';
+  },
+});
+
+Template.novoGrupo.events({
 	'submit #form-grupo'(event) {
 		event.preventDefault();
 
@@ -42,7 +49,7 @@ Template.novoGrupo.events({
       FlowRouter.go('/grupos');
       return;
     }
-    
+
 		Grupos.insert({
 		  nome: text,
 		  criadoEm: new Date(),
@@ -63,10 +70,10 @@ Template.novoGrupo.events({
 	},
 	'change #grupoPublico' (event) {
 		$('#grupoPrivado').prop('checked', false);
-	},		
+	},
 });
 
-Template.meusGrupos.events({	
+Template.meusGrupos.events({
 	'click #criarGrupo': function(event) {
 		FlowRouter.go("/novoGrupo");
 	}

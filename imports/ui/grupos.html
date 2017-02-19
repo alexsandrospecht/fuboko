@@ -8,8 +8,8 @@
 
 		<div class="margin-top30">
 			<ul class="list-group">
-		      	{{#each meusGrupos}} 
-			  		{{> grupo}} 
+		      	{{#each meusGrupos}}
+			  		{{> grupo}}
 			    {{/each}}
 		    </ul>
 	    </div>
@@ -21,12 +21,29 @@
 </template>
 
 <template name="grupo">
-	<li class="list-group-item list-group-item-success" 
-	    style="text-align: left;">{{_id}} 
-	    <span class="badge">{{#if publico}} Público {{else}} Privado {{/if}}</span> 
-	  	<a class="btn btn-primary btn-xs" style="float: right; margin-right: 10px" href="/grupos/{{_id}}/atletas">Detalhes</a>
+	<li class="list-group-item list-group-item-success"
+	    style="text-align: left;">{{nome}}
+	    <span class="badge">{{#if publico}} Público {{else}} Privado {{/if}}</span>
+	  	<a class="btn btn-primary btn-xs" style="float: right; margin-right: 10px" href="/detalharGrupo/{{_id}}">Detalhes</a>
 	    <a class="btn btn-info btn-xs" style="float: right; margin-right: 10px" href="/grupos/{{_id}}">Editar</a>
 	</li>
+</template>
+
+<template name="detalharGrupo">
+  <div class="main-form bigger-form">
+   	<div class="div-logo">
+      	<img class='img-centralizada' src='/icons/Corner.png' height="60" width="60">
+      	<div class="login-logo">
+          {{grupo.nome}}
+      	</div>
+    </div>
+    <div class="texto-centralizado margin-top30">
+      <h4> Link para entrar:</h4>
+      <h5>http://localhost:3000/detalharGrupo/{{grupo._id}} </h5>
+      <br/>
+      <a class="btn btn-primary btn-xs" href="/grupos/{{grupo._id}}/atletas">Atletas</a>
+    </div>
+  </div>
 </template>
 
 <template name="novoGrupo">
@@ -45,7 +62,7 @@
 		  <div>
 		  	<input type="checkbox" id="grupoPrivado" value="{{grupo.publico}}"/> Privado
 		    <input type="checkbox" id="grupoPublico" value="{{grupo.publico}}"/> Publico
-		  </div> 
+		  </div>
 		  <p class="margin-top30">
           	<button type="submit" id="salvarGrupo" class="btn btn-primary btn-block">Salvar</button>
           </p>
