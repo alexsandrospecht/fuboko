@@ -2,29 +2,22 @@ import './sorteio.html';
 
 import { Grupos } from '../api/grupos.js';
 import { Sorteio } from '../core/sorteio.js';
+import { ReactiveDict } from 'meteor/reactive-dict';
 
 Template.sorteio.onCreated(function atletasOnCreated() {
   Meteor.subscribe('users');
   Meteor.subscribe('grupos');
 
-  times = null;
+  this.times = new ReactiveDict();
 });
 
 Template.sorteio.helpers({
   times() {
-    if (times) {
-      return times;
+    if (this.times) {
+      return this.times;
     }
 
-    atletas = Meteor.users.find().fetch();
-    grupo = Grupos.findOne();
-
-    if (grupo == undefined || atletas == undefined || atletas.length <= 1) {
-      return null;
-    }
-
-    times = new Sorteio(atletas, grupo).sortear();
-    return times;
+    return this.times = buildTimes();
 	},
   pathParaSorteio() {
     var params = {
@@ -42,3 +35,23 @@ Template.atletaSorteio.helpers({
   	return '';
 	},
 });
+
+Template.sorteio.events({
+    'click #resortear': function(event) {
+      this.times = null;
+
+      BlazeLayout.reset(); // this will remove the current template.
+      BlazeLayout.render('sorteio');
+    },
+});
+
+function buildTimes() {
+  atletas = Meteor.users.find().fetch();
+  grupo = Grupos.findOne();
+
+  if (grupo == undefined || atletas == undefined || atletas.length <= 1) {
+    return null;
+  }
+
+  return new Sorteio(atletas, grupo).sortear();
+}
