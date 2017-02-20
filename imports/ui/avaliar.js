@@ -9,7 +9,7 @@ Template.avaliar.onCreated(function avaliarOnCreated() {
 
 Template.avaliar.helpers({
   atletaAvaliado() {
-  	avaliado = Meteor.users.findOne({_id: getAvaliadoId()});
+  	avaliado = Meteor.users.findOne({_id: this.atletaId});
   	return avaliado && avaliado.profile ? avaliado.profile.name : 'Não encontrado';
 	},
   avaliacao() {    
@@ -18,8 +18,9 @@ Template.avaliar.helpers({
       return null;
     }
 
+    var avaliadoId = this.atletaId;
     avaliacoes = grupo.avaliacoes.filter(function(chain) {
-      return chain.avaliadoId == getAvaliadoId() && chain.ownerId == Meteor.userId();
+      return chain.avaliadoId == avaliadoId && chain.ownerId == Meteor.userId();
     });
 
     if (avaliacoes.length > 0) {
@@ -36,6 +37,9 @@ Template.campoAvaliacao.helpers({
   },
   checked(pos, nota) {
     return pos === nota;
+  },
+  nota() {
+    return this.avaliacao[this.name];
   }
 });
 
@@ -47,7 +51,7 @@ Template.avaliar.events({
     untoggleLabels(event);
   },
   'click .review > label' (event) {
-    checkRadio(event);
+    checkRadio(event, this.avaliacao.avaliadoId);
   },
 });
 
@@ -69,7 +73,7 @@ function toggleLabel(event) {
   }
 }
 
-function checkRadio(event) {
+function checkRadio(event, avaliadoId) {
   radioInput = getRadioInput(event.target.parentElement);
   if (radioInput == null) {
     return;
@@ -77,17 +81,17 @@ function checkRadio(event) {
 
   radioInput.parent().children('input').removeClass('toggled');
   radioInput.addClass('toggled');
-  salvar();
+  salvar(avaliadoId);
 }
 
-function salvar() {
+function salvar(avaliadoId) {
   avaliacao = new Object();
   avaliacao.notaPasse = parseInt($('input.toggled[name=notaPasse]')[0].value);
   avaliacao.notaDrible = parseInt($('input.toggled[name=notaDrible]')[0].value);
   avaliacao.notaPreparoFisico = parseInt($('input.toggled[name=notaPreparoFisico]')[0].value);
   avaliacao.notaChute = parseInt($('input.toggled[name=notaChute]')[0].value);
   avaliacao.notaMarcacao = parseInt($('input.toggled[name=notaMarcacao]')[0].value);
-  avaliacao.avaliadoId = getAvaliadoId();
+  avaliacao.avaliadoId = avaliadoId;
 
   grupoDefault = Grupos.findOne();
 
@@ -102,8 +106,4 @@ function getRadioInput(label) {
 
   idInput = forAttribute.value;
   return $('#' + idInput);
-}
-
-function getAvaliadoId() {
-  return FlowRouter.current().params.user_id;
 }

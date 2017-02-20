@@ -41,7 +41,7 @@ Template.atleta.events({
       grupoId: FlowRouter.current().params.grupo_id,
       atletaId: atleta._id
     };
-    debugger
-    Blaze.renderWithData(Template.avaliar, params, event.target);
+    $('.avaliacao').remove();
+    Blaze.renderWithData(Template.avaliar, params, event.currentTarget.parentElement);
   }
 });

@@ -13,3 +13,9 @@ Template.registerHelper( 'le', (n1, n2) => {
 Template.registerHelper( 'eq', (n1, n2) => {
   return n1 == n2;
 });
+
+Template.registerHelper('parentData',
+  function () {
+      return Template.parentData();
+  }
+);

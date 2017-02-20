@@ -1,14 +1,28 @@
 <template name="avaliar">
-  <div class="main-form">
-    <h4>{{atletaAvaliado}}</h4>
-    <br/>
-
+  <div class='avaliacao'>
   	<form class="nova-avaliacao">
-    	<strong>Passe</strong> {{>campoAvaliacao nota=avaliacao.notaPasse name='notaPasse'}} <br/>
-	    <strong>Chute</strong> {{>campoAvaliacao nota=avaliacao.notaChute  name='notaChute'}} <br/>
-	    <strong>Drible</strong> {{>campoAvaliacao nota=avaliacao.notaDrible name='notaDrible'}} <br/>
-	    <strong>Marcação</strong> {{>campoAvaliacao nota=avaliacao.notaMarcacao name='notaMarcacao'}} <br/>
-			<strong>Preparo Físico</strong> {{>campoAvaliacao nota=avaliacao.notaPreparoFisico name='notaPreparoFisico'}} <br/>
+      <table>
+        <tr>
+          <td>Passe</td>
+          <td>{{>campoAvaliacao avaliacao=avaliacao name='notaPasse'}}</td>
+        </tr>
+        <tr>
+          <td>Chute</td>
+          <td>{{>campoAvaliacao avaliacao=avaliacao name='notaChute'}}</td>
+        </tr>
+        <tr>
+          <td>Drible</td>
+          <td>{{>campoAvaliacao avaliacao=avaliacao name='notaDrible'}}</td>
+        </tr>
+        <tr>
+          <td>Marcação</td>
+          <td>{{>campoAvaliacao avaliacao=avaliacao name='notaMarcacao'}}</td>
+        </tr>
+        <tr>
+          <td>Preparo Físico</td>
+          <td>{{>campoAvaliacao avaliacao=avaliacao name='notaPreparoFisico'}}</td>
+        </tr>
+      </table>
 		</form>
 	</div>
 </template>
