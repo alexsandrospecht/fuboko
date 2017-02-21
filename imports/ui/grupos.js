@@ -61,11 +61,7 @@ Template.novoGrupo.events({
 
 			FlowRouter.go('/grupos');
 
-			document.getElementById("textoModal").innerHTML = "Grupo alterado com sucesso!";
-			document.getElementById("modalTitle").innerHTML = "Sucesso";
-
-			$('#myModal').modal('show');
-
+			showModal("Sucesso", "Grupo alterado com sucesso!");
       return;
     }
 
@@ -78,8 +74,8 @@ Template.novoGrupo.events({
 
 		target.text.value = '';
 
-		alert('Novo Grupo Cadastrado Com Sucesso!');
 		FlowRouter.go('/grupos');
+		showModal("Sucesso", "Novo grupo cadastrado com sucesso!");
 	},
 	'click #cancelarGrupo' (event) {
 	    BlazeLayout.render("meusGrupos");
@@ -97,3 +93,9 @@ Template.meusGrupos.events({
 		FlowRouter.go("/novoGrupo");
 	}
 });
+
+function showModal(header, msg ) {
+  document.getElementById("modalTitle").innerHTML = header;
+  document.getElementById("textoModal").innerHTML = msg;
+  $('#myModal').modal('show');
+}
