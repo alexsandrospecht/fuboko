@@ -21,7 +21,7 @@ Template.novoGrupo.helpers({
 
 Template.detalharGrupo.helpers({
   grupo() {
-    grupo = Grupos.find({_id: FlowRouter.current().params._id});
+    grupo = Grupos.findOne({_id: FlowRouter.current().params._id});
 
 		if (grupo.atletas === undefined) {
 			Grupos.update(
@@ -54,6 +54,7 @@ Template.novoGrupo.events({
     if (grupo != null) {
        Grupos.update(grupo._id, {
         $set: { nome: text, publico: public },
+				$addToSet: {atletas: [ Meteor.userId() ] },
       });
 
       target.text.value = '';
