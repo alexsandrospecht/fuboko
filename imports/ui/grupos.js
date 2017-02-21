@@ -1,5 +1,6 @@
 import './grupos.html';
 
+import showModal from'../helpers/util.js';
 import { Grupos } from '../api/grupos.js';
 
 Template.meusGrupos.helpers({
@@ -93,9 +94,3 @@ Template.meusGrupos.events({
 		FlowRouter.go("/novoGrupo");
 	}
 });
-
-function showModal(header, msg ) {
-  document.getElementById("modalTitle").innerHTML = header;
-  document.getElementById("textoModal").innerHTML = msg;
-  $('#myModal').modal('show');
-}
