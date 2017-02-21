@@ -1,17 +1,39 @@
 <template name="avaliar">
-    <div class="main-form">
-	    {{atletaAvaliado}}
-	    <br/>
-    	<form class="nova-avaliacao">
-	    	
-	    	<strong>Passe</strong> <input type="text" name="notaPasse" value="{{avaliacao.notaPasse}}"/><br/>
-		    <strong>Chute</strong> <input type="text" name="notaChute" value="{{avaliacao.notaChute}}"/><br/>
-		    <strong>Drible</strong> <input type="text" name="notaDrible" value="{{avaliacao.notaDrible}}"/><br/>
-		    <strong>Marcação</strong> <input type="text" name="notaMarcacao" value="{{avaliacao.notaMarcacao}}"/><br/>
-				<strong>Preparo Físico</strong> <input type="text" name="notaPreparoFisico" value="{{avaliacao.notaPreparoFisico}}"/>
-				<br/>
-
-				<input type="submit" text="Enviar nota">
-			</form>
+  <div class='avaliacao'>
+  	<form class="nova-avaliacao">
+      <table>
+        <tr>
+          <td>Passe</td>
+          <td>{{>campoAvaliacao avaliacao=avaliacao name='notaPasse'}}</td>
+        </tr>
+        <tr>
+          <td>Chute</td>
+          <td>{{>campoAvaliacao avaliacao=avaliacao name='notaChute'}}</td>
+        </tr>
+        <tr>
+          <td>Drible</td>
+          <td>{{>campoAvaliacao avaliacao=avaliacao name='notaDrible'}}</td>
+        </tr>
+        <tr>
+          <td>Marcação</td>
+          <td>{{>campoAvaliacao avaliacao=avaliacao name='notaMarcacao'}}</td>
+        </tr>
+        <tr>
+          <td>Preparo Físico</td>
+          <td>{{>campoAvaliacao avaliacao=avaliacao name='notaPreparoFisico'}}</td>
+        </tr>
+      </table>
+		</form>
 	</div>
+</template>
+
+<template name = "campoAvaliacao">
+  <div class = 'review'>
+    {{#each pos in estrelas}}
+      <label for="{{name}}{{pos}}" class = '{{#if le pos nota}} toggled {{/if}}'>
+        <i class="fa fa-star"></i>
+      </label>
+      <input id="{{name}}{{pos}}" type="radio" name="{{name}}" value="{{pos}}" class = '{{#if eq pos nota}} toggled {{/if}}' checked={{checked pos nota}}/>
+    {{/each}}
+  </div>
 </template>

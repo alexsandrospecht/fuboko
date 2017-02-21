@@ -33,3 +33,15 @@ Template.atleta.helpers({
     return FlowRouter.path('/grupos/:grupo/avaliar/:atleta', params);
   }
 });
+
+Template.atleta.events({
+  'click .atleta'(event) {
+    var atleta = this;
+    var params = {
+      grupoId: FlowRouter.current().params.grupo_id,
+      atletaId: atleta._id
+    };
+    $('.avaliacao').remove();
+    Blaze.renderWithData(Template.avaliar, params, event.currentTarget.parentElement);
+  }
+});
