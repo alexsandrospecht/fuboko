@@ -22,6 +22,10 @@ Template.novoGrupo.helpers({
 Template.detalharGrupo.helpers({
   grupo() {
     grupo = Grupos.findOne({_id: FlowRouter.current().params._id});
+
+		if (grupo.usuario !== Meteor.userId())
+			alert(1); //inserir usuario no grupo
+
     return grupo ? grupo : 'Não encontrado';
   },
 });
