@@ -21,11 +21,19 @@ Template.novoGrupo.helpers({
 
 Template.detalharGrupo.helpers({
   grupo() {
-    grupo = Grupos.findOne({_id: FlowRouter.current().params._id});
+    grupo = Grupos.find({_id: FlowRouter.current().params._id});
 
-		if (grupo.usuario !== Meteor.userId())
-			alert(1); //inserir usuario no grupo
-
+		if (grupo.atletas === undefined) {
+			Grupos.update(
+			   { _id: grupo._id },
+			   { $addToSet: {atletas: [ Meteor.userId() ] } }
+			)
+		} else if (Meteor.userId() in grupo.atletas) {
+			Grupos.update(
+			   { _id: grupo._id },
+			   { $addToSet: {atletas: [ Meteor.userId() ] } }
+			)
+		}
     return grupo ? grupo : 'Não encontrado';
   },
 });
