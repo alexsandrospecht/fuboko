@@ -58,8 +58,14 @@ Template.novoGrupo.events({
       });
 
       target.text.value = '';
-      alert('Grupo Alterado Com Sucesso!');
-      FlowRouter.go('/grupos');
+
+			FlowRouter.go('/grupos');
+
+			document.getElementById("textoModal").innerHTML = "Grupo alterado com sucesso!";
+			document.getElementById("modalTitle").innerHTML = "Sucesso";
+
+			$('#myModal').modal('show');
+
       return;
     }
 
