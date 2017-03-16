@@ -35,7 +35,7 @@ FlowRouter.route('/detalharGrupo/:_id', {
 });
 
 route('/grupos', 'meusGrupos');
-route('/', 'meusGrupos');
+route('/', 'login');
 
 function route(from, toAction) {
   FlowRouter.route(from, {
